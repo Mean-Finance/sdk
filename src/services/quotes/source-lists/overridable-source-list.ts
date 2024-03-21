@@ -30,8 +30,24 @@ export class OverridableSourceList implements IQuoteSourceList {
     return sources;
   }
 
-  getQuote(request: SourceListRequest): Promise<SourceListResponse> {
-    return this.getSourceListForId(request.sourceId).getQuote(request);
+  getQuotes(request: SourceListRequest): Record<SourceId, Promise<SourceListResponse>> {
+    const result: Record<SourceId, Promise<SourceListResponse>> = {};
+    const sourceListSourcesId: Map<IQuoteSourceList, SourceId[]> = new Map();
+
+    request.sources.forEach((sourceId) => {
+      const sourceList = this.getSourceListForId(sourceId);
+      if (!sourceListSourcesId.has(sourceList)) {
+        sourceListSourcesId.set(sourceList, []);
+      }
+      sourceListSourcesId.get(sourceList)!.push(sourceId);
+    });
+
+    sourceListSourcesId.forEach((sourceIds, sourceList) => {
+      const responses = sourceList.getQuotes({ ...request, sources: sourceIds });
+      Object.entries(responses).forEach(([sourceId, response]) => (result[sourceId] = response));
+    });
+
+    return result;
   }
 
   private getSourceListForId(sourceId: SourceId) {

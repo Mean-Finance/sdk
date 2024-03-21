@@ -6,11 +6,11 @@ import { QuoteRequest, SourceMetadata, SourceId, GlobalQuoteSourceConfig, QuoteT
 
 export type IQuoteSourceList = {
   supportedSources(): Record<SourceId, SourceMetadata>;
-  getQuote(request: SourceListRequest): Promise<SourceListResponse>;
+  getQuotes(request: SourceListRequest): Record<SourceId, Promise<SourceListResponse>>;
 };
 
 export type SourceListRequest = Omit<QuoteRequest, 'filters' | 'gasSpeed'> & {
-  sourceId: SourceId;
+  sources: SourceId[];
   external: {
     tokenData: ITriggerablePromise<{
       sellToken: BaseTokenMetadata;

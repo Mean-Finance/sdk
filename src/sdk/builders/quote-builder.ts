@@ -11,11 +11,13 @@ import { ArrayOneOrMore } from '@utility-types';
 import { APISourceList, URIGenerator } from '@services/quotes/source-lists/api-source-list';
 import { IProviderService } from '@services/providers';
 import { IPriceService } from '@services/prices';
+import { BatchAPISourceList, URIGenerator as URIGeneratorBatch } from '@services/quotes/source-lists/batch-api-source-list';
 
 export type QuoteSourceListInput =
   | { type: 'custom'; instance: IQuoteSourceList }
   | { type: 'local' }
   | { type: 'api'; baseUri: URIGenerator; sources: Record<SourceId, SourceMetadata> }
+  | { type: 'batch-api'; baseUri: URIGeneratorBatch; sources: Record<SourceId, SourceMetadata> }
   | {
       type: 'overridable-source-list';
       lists: { default: QuoteSourceListInput; overrides: ArrayOneOrMore<{ list: QuoteSourceListInput; sourceIds: SourceId[] }> };
@@ -65,6 +67,8 @@ function buildList(
       });
     case 'api':
       return new APISourceList({ fetchService, ...list });
+    case 'batch-api':
+      return new BatchAPISourceList({ fetchService, ...list });
     case 'overridable-source-list':
       const defaultList = buildList(list.lists.default, { providerService, fetchService });
       const overrides = list.lists.overrides.map(({ list, sourceIds }) => ({

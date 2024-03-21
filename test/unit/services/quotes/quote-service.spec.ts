@@ -112,11 +112,11 @@ const REQUEST: { request: QuoteRequest } = {
 
 const SOURCE_LIST: IQuoteSourceList = {
   supportedSources: () => ({ [SOURCE]: CHANGELLY_METADATA }),
-  getQuote: () => Promise.resolve(RESPONSE),
+  getQuotes: () => ({ [SOURCE]: Promise.resolve(RESPONSE) }),
 };
 const FAILING_SOURCE_LIST: IQuoteSourceList = {
   ...SOURCE_LIST,
-  getQuote: () => Promise.reject(new Error('Something failed at list level')),
+  getQuotes: () => ({ [SOURCE]: Promise.reject(new Error('Something failed at list level')) }),
 };
 
 const METADATA_SERVICE: IMetadataService<BaseTokenMetadata> = {
