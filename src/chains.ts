@@ -460,6 +460,15 @@ export const Chains = {
     ],
     explorer: 'https://blastscan.io/',
   },
+  SCROLL: {
+    chainId: 534352,
+    name: 'Scroll',
+    ids: ['scroll'],
+    nativeCurrency: { symbol: 'ETH', name: 'Ethereum' },
+    wToken: '0x5300000000000000000000000000000000000004',
+    publicRPCs: ['https://scroll-mainnet.chainstacklabs.com', 'https://rpc.ankr.com/scroll', 'https://rpc.scroll.io', 'https://1rpc.io/scroll'],
+    explorer: 'https://scrollscan.com/',
+  },
   ETHEREUM_GOERLI: {
     chainId: 5,
     name: 'Ethereum Goerli',

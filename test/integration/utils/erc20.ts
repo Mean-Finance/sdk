@@ -219,6 +219,20 @@ export const TOKENS: Record<ChainId, Record<string, TokenData>> = {
       whale: '0xc35DADB65012eC5796536bD9864eD8773aBc74C4',
     },
   },
+  [Chains.SCROLL.chainId]: {
+    STABLE_ERC20: {
+      address: '0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4',
+      whale: '0x621df269d4dcb33012a089c00e79f92d2197ee5e',
+    },
+    RANDOM_ERC20: {
+      address: '0xf610a9dfb7c89644979b4a0f27063e9e7d7cda32',
+      whale: '0x69caccbd8e434453faf0b92ec6655cadef086e5c',
+    },
+    wToken: {
+      address: '0x5300000000000000000000000000000000000004',
+      whale: '0xa5832adc1e4487b635a483722e4fc34062467479',
+    },
+  },
   // Note: hardhat + Celo + Moonbeam throws `Errors: Invalid value undefined supplied to : RpcBlockWithTransactions | null/sha3Uncles: HASH, Invalid value undefined supplied to : RpcBlockWithTransactions | null/difficulty` error.
   // Ref.: https://github.com/NomicFoundation/hardhat/issues/3590
   // [Chains.CELO.chainId]: {

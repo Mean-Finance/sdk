@@ -30,6 +30,7 @@ const SUPPORTED_CHAINS: Record<ChainId, string> = {
   [Chains.OKC.chainId]: 'oktc',
   [Chains.opBNB.chainId]: 'opbnb',
   [Chains.MODE.chainId]: 'mode',
+  [Chains.SCROLL.chainId]: 'scroll',
 };
 
 export class dRPCProviderSource extends BaseHttpProvider {

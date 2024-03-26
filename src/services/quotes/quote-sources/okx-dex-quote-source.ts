@@ -19,6 +19,7 @@ const SUPPORTED_CHAINS = [
   Chains.ARBITRUM,
   Chains.LINEA,
   Chains.BASE,
+  Chains.SCROLL,
 ];
 
 const OKX_DEX_METADATA: QuoteSourceMetadata<OKXDexSupport> = {

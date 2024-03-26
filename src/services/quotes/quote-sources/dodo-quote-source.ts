@@ -23,6 +23,7 @@ const DODO_DEX_METADATA: QuoteSourceMetadata<DodoDexSupport> = {
       Chains.MOONRIVER.chainId,
       Chains.OKC.chainId,
       Chains.OPTIMISM.chainId,
+      Chains.SCROLL.chainId,
     ],
     swapAndTransfer: false,
     buyOrders: false,

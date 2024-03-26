@@ -23,6 +23,7 @@ const SUPPORTED_CHAINS: Record<ChainId, string> = {
   [Chains.MOONRIVER.chainId]: `https://moonriver.blastapi.io${PLACEHOLDER}`,
   [Chains.OKC.chainId]: `https://oktc-mainnet.blastapi.io${PLACEHOLDER}`,
   [Chains.MODE.chainId]: `https://mode-mainnet.blastapi.io${PLACEHOLDER}`,
+  [Chains.SCROLL.chainId]: `https://scroll-mainnet.public.blastapi.io${PLACEHOLDER}`,
 };
 
 export class BlastProviderSource extends BaseHttpProvider {
