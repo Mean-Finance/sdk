@@ -46,7 +46,7 @@
     "cross-fetch": "3.1.5",
     "crypto-js": "4.2.0",
     "deepmerge": "4.3.1",
-    "lru-cache": "9.0.3",
+    "lru-cache": "10.3.0",
     "ms": "3.0.0-canary.1",
     "qs": "6.11.2",
     "viem": "2.9.27"
